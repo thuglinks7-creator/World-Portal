@@ -3,129 +3,81 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>World Portal</title>
-
+<meta name="description" content="World Portal — Your Gateway to Everything">
+<title>World Portal | Your Gateway to Everything</title>
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: radial-gradient(circle at top, #0b0f2a, #000);
-    color: white;
-}
-
-header {
-    text-align: center;
-    padding: 40px 20px;
-}
-
-header h1 {
-    font-size: 40px;
-    color: #00f7ff;
-    text-shadow: 0 0 20px #00f7ff;
-}
-
-header p {
-    color: #aaa;
-}
-
-.search-box {
-    text-align: center;
-    margin: 20px;
-}
-
-.search-box input {
-    width: 70%;
-    padding: 15px;
-    border-radius: 25px;
-    border: none;
-    outline: none;
-    font-size: 16px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 20px;
-    padding: 30px;
-}
-
-.card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(0,247,255,0.2);
-    padding: 25px;
-    border-radius: 15px;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #00f7ff;
-}
-
-.card h3 {
-    color: #00f7ff;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    color: #555;
-    font-size: 12px;
-}
+:root{--cyan:#00f7ff;--blue:#3478ff;--panel:rgba(255,255,255,.055);--line:rgba(0,247,255,.22);--text:#f5fbff;--muted:#91a4b5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#02050d;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 50% -10%,#123a62 0,#071225 28%,#02050d 62%);animation:pulse 8s ease-in-out infinite alternate}
+body:after{content:"";position:fixed;inset:0;z-index:-1;opacity:.28;background-image:linear-gradient(rgba(0,247,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,247,255,.07) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+@keyframes pulse{to{filter:hue-rotate(18deg) brightness(1.15)}} 
+nav{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(18px,5vw,70px);background:rgba(2,5,13,.72);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,247,255,.14)}
+.logo{font-weight:900;letter-spacing:2px;color:var(--cyan);text-shadow:0 0 14px rgba(0,247,255,.65)}nav a{color:#c9d7e4;text-decoration:none;margin-left:20px;font-size:14px}nav a:hover{color:var(--cyan)}
+.hero{text-align:center;padding:78px 20px 48px}.badge{display:inline-block;padding:7px 13px;border:1px solid var(--line);border-radius:999px;color:var(--cyan);font-size:12px;letter-spacing:1.5px;background:rgba(0,247,255,.05)}
+h1{font-size:clamp(46px,10vw,88px);line-height:.95;margin:22px 0 14px;letter-spacing:4px;color:#fff;text-shadow:0 0 28px rgba(0,247,255,.35)}.hero p{color:var(--muted);font-size:clamp(16px,3vw,21px);margin:0 auto;max-width:650px}
+.search{max-width:760px;margin:30px auto 0;position:relative;padding:0 18px}.search input{width:100%;padding:17px 22px;border-radius:999px;border:1px solid var(--line);outline:0;background:rgba(255,255,255,.08);color:#fff;font-size:16px;box-shadow:0 0 30px rgba(0,247,255,.07)}.search input:focus{border-color:var(--cyan);box-shadow:0 0 28px rgba(0,247,255,.18)}.search-results{display:none;text-align:left;margin-top:8px;padding:12px;border:1px solid var(--line);border-radius:16px;background:rgba(4,10,22,.96)}
+.container{width:min(1180px,92%);margin:auto}.section-title{display:flex;justify-content:space-between;align-items:end;margin:28px 0 18px}.section-title h2{margin:0;font-size:26px}.section-title span{color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding-bottom:40px}.card{position:relative;overflow:hidden;min-height:170px;padding:24px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));cursor:pointer;transition:.25s}.card:before{content:"";position:absolute;width:130px;height:130px;right:-50px;top:-50px;border-radius:50%;background:rgba(0,247,255,.08);filter:blur(5px)}.card:hover{transform:translateY(-5px);border-color:rgba(0,247,255,.65);box-shadow:0 15px 45px rgba(0,247,255,.12)}.icon{font-size:32px}.card h3{margin:15px 0 7px;color:var(--cyan)}.card p{margin:0;color:var(--muted);line-height:1.5;font-size:14px}
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:5px 0 50px}.quick div{padding:15px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);text-align:center}.quick strong{display:block;color:#fff;font-size:18px}.quick small{color:var(--muted)}
+footer{text-align:center;padding:35px 20px 45px;color:#667889;border-top:1px solid rgba(255,255,255,.07);font-size:12px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;padding:13px 18px;border:1px solid var(--line);border-radius:999px;background:rgba(3,9,20,.94);box-shadow:0 10px 35px rgba(0,0,0,.4);transition:.25s;color:#dffcff}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:650px){nav{padding:13px 16px}nav .links a:not(:last-child){display:none}.hero{padding-top:55px}h1{letter-spacing:2px}.quick{grid-template-columns:1fr}.card{min-height:145px}}
 </style>
-
 </head>
-
 <body>
+<nav>
+  <div class="logo">WORLD PORTAL</div>
+  <div class="links"><a href="#portal">Portal</a><a href="#explore">Explore</a><a href="#about">About</a></div>
+</nav>
 
-<header>
-    <h1>WORLD PORTAL</h1>
-    <p>Your Gateway to Everything</p>
+<header class="hero" id="portal">
+  <span class="badge">THE NEXT GENERATION PORTAL</span>
+  <h1>WORLD PORTAL</h1>
+  <p>Your Gateway to Everything</p>
+  <div class="search">
+    <input id="searchInput" type="search" placeholder="Search the portal..." autocomplete="off">
+    <div class="search-results" id="results"></div>
+  </div>
 </header>
 
-<div class="search-box">
-    <input type="text" placeholder="Search the portal...">
-</div>
+<main class="container" id="explore">
+  <div class="section-title"><h2>Explore World Portal</h2><span>More features coming online</span></div>
+  <section class="grid" id="cards">
+    <article class="card" data-name="Store" onclick="openFeature('Store')"><div class="icon">🛒</div><h3>Store</h3><p>Discover digital products and future World Portal offers.</p></article>
+    <article class="card" data-name="Links" onclick="openFeature('Links')"><div class="icon">🔗</div><h3>Links</h3><p>Keep your important websites and destinations in one place.</p></article>
+    <article class="card" data-name="Music" onclick="openFeature('Music')"><div class="icon">🎧</div><h3>Music</h3><p>Your future home for listening, discovering and sharing music.</p></article>
+    <article class="card" data-name="Creator Hub" onclick="openFeature('Creator Hub')"><div class="icon">⚡</div><h3>Creator Hub</h3><p>Build, publish and grow your creative work.</p></article>
+    <article class="card" data-name="Vault" onclick="openFeature('Vault')"><div class="icon">🔐</div><h3>Vault</h3><p>A private space planned for your files, projects and resources.</p></article>
+    <article class="card" data-name="Marketplace" onclick="openFeature('Marketplace')"><div class="icon">🌍</div><h3>Marketplace</h3><p>Connect buyers, creators and sellers around the world.</p></article>
+    <article class="card" data-name="AI Assistant" onclick="openFeature('AI Assistant')"><div class="icon">🤖</div><h3>AI Assistant</h3><p>An intelligent guide for navigating and using the portal.</p></article>
+    <article class="card" data-name="Profile" onclick="openFeature('Profile')"><div class="icon">👤</div><h3>Profile</h3><p>Your future account, preferences and personalized portal.</p></article>
+  </section>
 
-<div class="grid">
+  <div class="section-title"><h2>Portal Status</h2><span>Foundation build</span></div>
+  <section class="quick">
+    <div><strong>8</strong><small>Portal areas</small></div>
+    <div><strong>1</strong><small>Core gateway</small></div>
+    <div><strong>∞</strong><small>Room to grow</small></div>
+  </section>
 
-    <div class="card" onclick="alert('Opening Store...')">
-        <h3>🛒 Store</h3>
-        <p>Buy digital products</p>
-    </div>
+  <section id="about" class="section-title"><h2>Built for expansion</h2><span>World Portal © 2026</span></section>
+</main>
 
-    <div class="card" onclick="alert('Opening Links...')">
-        <h3>🔗 Links</h3>
-        <p>All your websites</p>
-    </div>
+<footer>World Portal © 2026 — Built by Derron Moodie</footer>
+<div class="toast" id="toast"></div>
 
-    <div class="card" onclick="alert('Opening Music...')">
-        <h3>🎧 Music</h3>
-        <p>Listen & upload</p>
-    </div>
-
-    <div class="card" onclick="alert('Opening Creator Hub...')">
-        <h3>⚡ Creator Hub</h3>
-        <p>Earn & upload content</p>
-    </div>
-
-    <div class="card" onclick="alert('Opening Vault...')">
-        <h3>🔐 Vault</h3>
-        <p>Save your files</p>
-    </div>
-
-    <div class="card" onclick="alert('Opening Marketplace...')">
-        <h3>🌍 Marketplace</h3>
-        <p>Global buying & selling</p>
-    </div>
-
-</div>
-
-<footer>
-    World Portal © 2026 — Built by Derron moodie
-</footer>
-
+<script>
+const input=document.getElementById('searchInput'), results=document.getElementById('results');
+const cards=[...document.querySelectorAll('.card')];
+input.addEventListener('input',()=>{
+  const q=input.value.trim().toLowerCase();
+  if(!q){results.style.display='none';return}
+  const matches=cards.filter(c=>c.dataset.name.toLowerCase().includes(q));
+  results.innerHTML=matches.length?matches.map(c=>`<div style="padding:9px 6px;color:#dffcff;cursor:pointer" onclick="document.querySelector('[data-name=\\'${c.dataset.name}\\']').scrollIntoView({behavior:'smooth',block:'center'});results.style.display='none'">→ ${c.dataset.name}</div>`).join(''):'<div style="padding:8px;color:#91a4b5">No portal area found yet.</div>';
+  results.style.display='block';
+});
+function openFeature(name){const toast=document.getElementById('toast');toast.textContent=name+' is part of the World Portal build — feature coming online next.';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2600)}
+document.addEventListener('click',e=>{if(!e.target.closest('.search'))results.style.display='none'});
+</script>
 </body>
 </html>
